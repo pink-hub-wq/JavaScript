@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            font-size: 12px;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul.firstMenu{
+            height: 25px;
+            border: 1px solid #ccc;
+            width: 400px;
+            margin: 12px auto;
+        }
+        ul.firstMenu li{
+            float: left;
+            padding: 0px 8px;
+            height: 25px;
+            line-height: 25px;
+        }
+        ul.firstMenu li.secondLi{
+            position: relative;
+            cursor: pointer;
+        }
+        ul.firstMenu li ul{
+            border: 1px solid #666;
+            border-top: none;
+            width: 100px;
+            position: absolute;
+            display: none;
+        }
+        ul.firstMenu li ul li{
+            float: none;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul class="firstMenu">
+        <li><a href="#">购物车</a></li>
+        <li>|</li>
+        <li class="secondLi">我的当当
+            <ul>
+                <li><a href="#">我的订单</a></li>
+                <li><a href="#">我的收藏</a></li>
+                <li><a href="#">我的余额</a></li>
+            </ul>
+        </li>
+        <li>|</li>
+        <li><a href="#">手机当当</a></li>
+        <li>|</li>
+        <li><a href="#">企业采购</a></li>
+        <li>|</li>
+        <li><a href="#">自主服务</a></li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $(".secondLi").hover(
+            function (){$(".secondLi ul").slideDown(1000);},
+            function (){$(".secondLi ul").slideUp(1000);
+            });
+    });
+</script>
+</body>
+</html>

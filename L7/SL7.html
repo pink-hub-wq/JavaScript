@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>请选择喜欢的歌曲：<br/>
+    <input type="checkbox" name="songs"/>卷珠帘
+    <input type="checkbox" name="songs"/>爸爸去哪儿
+    <input type="checkbox" name="songs"/>至少还有你
+    <input type="checkbox" name="songs"/>我唱故我在
+</p>
+<button>全选</button>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("button").click(function (){
+            $("input[name='songs']").attr("checked","checked");
+        });
+    });
+</script>
+</body>
+</html>

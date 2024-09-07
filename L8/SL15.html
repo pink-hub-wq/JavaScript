@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <img src="images/island.jpg">&nbsp;&nbsp;
+    <img src="images/green.jpg">
+</p>
+<button>添加边框</button>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("button").click(function (){
+            $("img").each(function (index){
+                this.style.border = "1px solid #f00";
+                this.title = "第" + (index + 1) + "幅风景";
+            });
+        });
+    });
+</script>
+</body>
+</html>

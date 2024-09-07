@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 12px;
+        }
+        div#register fieldset {
+            border: 1px solid #ccc;
+            width: 500px;
+            padding: 20px;
+        }
+        div#register fieldset legend {
+            margin-left: 20px;
+        }
+        div#register label {
+            width: 70px;
+            display: block;
+            float: left;
+            text-align: right;
+        }
+        div#register .txt{
+            border: 1px solid #ccc;
+            width: 130px;
+        }
+        div#register span{
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div id="register">
+    <form onsubmit="return check()" action="success.html">
+        <fieldset>
+            <legend>请填写注册信息</legend>
+            <p>
+                <label>用户名：</label>
+                <input name="" type="text" id="txtName" class="txt" onblur="checkName()">
+                <span id="span_name">英文字母和数字组成的4-16位字符，以字母开头</span>
+            </p>
+            <p>
+                <label>昵称：</label>
+                <input name="" type="text" id="txtNick" class="txt" onblur="checkNick()">
+                <span id="span_nick">由2-6个数字组成</span>
+            </p>
+            <p>
+                <label>邮箱：</label>
+                <input name="" type="text" id="txtEmail" class="txt" onblur="checkEmail()">
+                <span id="span_email">邮箱@域名，如seiryo@tom.com</span>
+            </p>
+            <p>
+                <label>密码：</label>
+                <input name="" type="password" id="txtPwd" class="txt" onblur="checkPwd()">
+                <span id="span_pwd">英文字母和数字组成的4-10位字符</span>
+            </p>
+            <p>
+                <label>确认密码：</label>
+                <input name="" type="password" id="txtConfirmPwd" class="txt" onblur="checkConfirmPwd()">
+                <span id="span_confirmPwd"></span>
+            </p>
+            <p>
+                <label>手机号码：</label>
+                <input name="" type="text" id="txtPhone" class="txt" onblur="checkPhone()">
+                <span id="span_phone">手机号由11位数字组成，且以13,15,18开头</span>
+            </p>
+            <p>
+                <label>出生日期：</label>
+                <input name="" type="text" id="txtBornDate" class="txt" onblur="checkBornDate()">
+                <span id="span_Born">出生日期在1900-2009之间，出生格式如：1994-2-9</span>
+            </p>
+            <input type="submit" value="提交">
+        </fieldset>
+    </form>
+</div>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+    function checkName(){
+        var name = $("txtName").value;
+        var name_prompt = $("span_name");
+        var nameReg = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+        if(!nameReg.test(name)){
+            name_prompt.innerHTML = "错误，英文字母和数字组成的4-16位字符，以字母开头";
+            return false;
+        }
+        name_prompt.innerHTML = "格式正确";
+        return true;
+    }
+    function checkNick(){
+        var nick = $("txtNick").value;
+        var nick_prompt = $("span_nick");
+        var nickReg = new RegExp("^[\u4e00-\u9fa5]{2,6}$");
+        if(!nickReg.test(nick)){
+            nick_prompt.innerHTML = "错误，由2-6个数字组成";
+            return false;
+        }
+        nick_prompt.innerHTML = "格式正确";
+        return true;
+    }
+    function checkEmail(){
+        var email = $("txtEmail").value;
+        var email_prompt = $("span_email");
+        var emailReg = /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+        if(!emailReg.test(email)){
+            email_prompt.innerHTML = "错误，如seiryo@tom.com或者seiryo@sina.com";
+            return false;
+        }
+        email_prompt.innerHTML = "格式正确";
+        return true;
+    }
+    function checkPwd(){
+        var pwd = $("txtPwd").value;
+        var pwd_prompt = $("span_pwd");
+        var pwdReg = /^[a-zA-Z0-9]{4,10}$/;
+        if(!pwdReg.test(pwd)){
+            pwd_prompt.innerHTML = "错误，英文字母和数字组成的4-10位字符";
+            return false;
+        }
+        pwd_prompt.innerHTML = "格式正确";
+        return true;
+    }
+    function checkConfirmPwd(){
+        var confirmPwd = $("txtConfirmPwd").value;
+        var pwd = $("txtPwd").value;
+        var confirmPwd_prompt = $("span_confirmPwd");
+        if(pwd != confirmPwd){
+            confirmPwd_prompt.innerHTML = "错误，两次输入的密码不一致";
+            return false;
+        }
+        confirmPwd_prompt.innerHTML = "密码正确";
+        return true;
+    }
+    function checkPhone(){
+        var phone = $("txtPhone").value;
+        var phone_prompt = $("span_phone");
+        var phoneReg = /^(13|15|18)\d{9}$/;
+        if(!phoneReg.test(phone)){
+            phone_prompt.innerHTML = "错误，手机号由11位数字组成，且以13,15,18开头";
+            return false;
+        }
+        phone_prompt.innerHTML = "格式正确";
+        return true;
+    }
+    function checkBornDate(){
+        var bornDate = $("txtBornDate").value;
+        var born_prompt = $("span_born");
+        var bornReg = /^((19\d{2})|(200\d))-(0?[1-9]|[0-2])-(0?[1-9]|[1-2]\d|3[0-1])$/;
+        if(!bornReg.test(bornDate)){
+            born_prompt.innerHTML = "错误，出生格式如：1994-2-9或者1994-02-09";
+            return false;
+        }
+        born_prompt.innerHTML = "格式正确";
+        return true;
+    }
+    function check(){
+        if(checkName() && checkEmail() && checkNick() && checkPwd() && checkConfirmPwd() && checkPhone() && checkBornDate()){
+            return true;
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

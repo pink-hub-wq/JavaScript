@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .con{
+            border:1px solid red;
+            color:orange;
+        }
+    </style>
+    <script>
+        function setContent(){
+            var obj = document.getElementById("content");
+            obj.innerHTML="<h3>动态添加标题</h3>";
+        }
+        function setStyle(){
+            var obj = document.getElementById("content");
+            obj.className="con";
+        }
+    </script>
+</head>
+<body>
+<div id="content"></div>
+<input type="button" value="添加内容" onclick="setContent()" />
+<input type="button" value="修改样式" onclick="setStyle()" />
+</body>
+</html>

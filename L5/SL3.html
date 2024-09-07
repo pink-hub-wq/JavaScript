@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.show = function (){
+                document.write("姓名是：" + person.name + "\n"+ "年龄是：" + person.age+ "\n "+ "性别是：" + person.gender);
+            }
+        }
+        var person = new Person ("冯仑",45,"男");
+        person.show();
+    </script>
+</body>
+</html>

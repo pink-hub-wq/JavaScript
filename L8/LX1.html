@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>购物车|美淘网</title>
+    <link href="css/global.css" type="text/css" rel="stylesheet" />
+    <link href="css/cart.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        /*放大图片的样式*/
+        img#imgTip{
+            position:absolute;
+            border:1px solid #ccc;
+            padding:3px;
+            width:120px;
+            height:85px;
+            display:none;
+            background-color:#eee;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="content">
+    <div id="ordertable">
+        <ul>
+            <li><img src="images/cart/g1.jpg" /></li>
+            <li>我的购物车</li>
+            <li class="step"></li>
+        </ul>
+        <form>
+            <table id="tabOrder">
+                <tr>
+                    <th><input type="checkbox" id="allCb" />全选</th>
+                    <th>项目</th>
+                    <th>状态</th>
+                    <th>类型/数量</th>
+                    <th>单价</th>
+                    <th>小计</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="item"/></td>
+                    <td class="item"><a href="detail.html"> <img src="images/cart/item1.jpg"  align="left"/>欢乐空间量贩式KTV：欢唱套餐2选1，国家法定节假日需到店另付20元，可升级</a></td>
+                    <td>可购买</td>
+                    <td><input type="button" value="-" class="btn btnMinus" />
+                        <input class="txt" type="text"  value="1" disabled="disabled"/>
+                        <input type="button" value="+" class="btn btnAdd"  /></td>
+                    <td>&yen;39.9</td>
+                    <td title="price">&yen;39.9</td>
+                    <td><a href="#">删除</a></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="item" /></td>
+                    <td class="item"><a href="detail.html"> <img src="images/cart/item2.jpg" align="left"/>途乐时尚主题量贩式KTV：任选1小时欢唱，可升级，提供免费WiFi</a></td>
+                    <td>可购买</td>
+                    <td><input type="button" value="-" class="btn btnMinus" />
+                        <input class="txt" type="text"  value="1" disabled="disabled"/>
+                        <input  type="button" value="+" class="btn btnAdd" /></td>
+                    <td>&yen;3</td>
+                    <td title="price">&yen;3</td>
+                    <td><a href="#">删除</a></td>
+                </tr>
+                <tr>
+                    <td colspan="7" class="cal">已选<span>2</span>件商品 应付总额： <span id="spanTotal">¥42.9</span></td>
+                </tr>
+            </table>
+            <p>
+                <input type="image" src="images/cart/tj.png" />
+            </p>
+        </form>
+    </div>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#allCb").click(function() {
+            var a = $(this).is(":checked");
+            $("input[name='item']").each(function() {
+                $(this).prop('checked', a);
+            });
+        });
+        function calPrice($BtnObj,number){
+            var $tdObj = $BtnObj.parent().next();
+            var price = parseFloat($tdObj.text().substr(1));
+            var $tdObjTotal = $tdObj.next();
+            var total = price * number;
+            $tdObjTotal.html("&yen;" + total.toFixed(2));
+        }
+        function calTotalPrice(){
+            var sum = 0;
+            $("#tabOrder td[title='price']").each(function (){
+                sum += parseFloat($(this).text().substr(1));
+            });
+            $("#spanTotal").html("&yen;" + sum);
+        }
+
+        $(".btnAdd").click(function () {
+            var $btn = $(this);
+            var $txt = $btn.parent().children(".txt");
+            var number1 = parseInt($txt.val());
+            var number = number1 + 1;
+            if(number <= 0){
+                number = 0;
+            }
+            $txt.val(number);
+            calPrice($btn, number);
+            calTotalPrice();
+        });
+        $(".btnMinus").click(function () {
+            var $btn = $(this);
+            var $txt = $btn.parent().children(".txt");
+            var number1 = parseInt($txt.val());
+            var number = number1 - 1;
+            if(number <= 0){
+                number = 0;
+            }
+            $txt.val(number);
+            calPrice($btn, number);
+            calTotalPrice();
+        });
+    });
+
+</script>
+</body>
+</html>

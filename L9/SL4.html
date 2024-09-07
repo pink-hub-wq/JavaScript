@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="images/fj1.jpg" title="美国">
+<script src="js/jquery-1.8.0.min.js"></script>
+<script>
+    $(function () {
+        $("img").toggle(
+            function () {
+                $(this).attr({"src": "images/fj2.jpg", "title": "马来西亚"})
+            },
+            function () {
+                $(this).attr({"src": "images/fj3.jpg", "title": "迪拜"})
+            },
+            function () {
+                $(this).attr({"src": "images/fj1.jpg", "title": "美国"})
+            }
+         );
+    });
+</script>
+</body>
+</html>

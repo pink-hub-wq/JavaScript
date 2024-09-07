@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+	<script>
+    	var month = 5;//出行月份
+		var grade = "头等舱";//仓位为头等舱，则为true
+		var price = 3200;//价格
+		var discount;//折扣
+		var total;//最终价格
+		if(month >= 5 && month <= 10){
+			if(grade == "头等舱"){
+				discount = 0.9;
+			}else{
+				discount = 0.75;
+			}
+		}else if(month >= 1 && month < 5 || month >= 11 && month <= 12){
+			if(grade == "头等舱"){
+				discount = 0.6;
+			}else{
+				discount = 0.3;
+			}
+		}else{
+			document.write("您的信息有误");
+		}
+		total = price * discount;
+		document.write("您的机票原价是：" + price + "<br>");
+		document.write("出行的月份是：" + month + "<br>");
+		document.write("舱位是：" + grade + "<br>");
+		document.write("折扣是：" + discount + "<br>");
+		document.write("最终价格是：" + total);
+    </script>
+</body>
+</html>

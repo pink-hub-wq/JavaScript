@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body onload="initsheng(),fillshi()">
+<div id="content">
+    <div id="register">
+        <form action="" onsubmit="return checkForm()">
+            <fieldset>
+                <legend>注册新用户</legend>
+                <ul>
+                    <li class="current">邮箱用户</li>
+                    <li>手机用户</li>
+                </ul>
+                <div class="c">
+                    <label for="email">邮箱:</label>
+                    <input type="text" id="email" name="email" class="txt" onfocus="lightTxt(this)" onblur="checkEmail()">
+                    <span id="span_email"></span>
+                    <span id="sss">推荐使用qq邮箱</span>
+                </div>
+                <div class="c">
+                    <label for="username">用户名:</label>
+                    <input type="text" id="username" name="username" class="txt" onfocus="lightTxt(this)" onblur="checkName()">
+                    <span id="span_username"></span>
+                    <span id="sss1">4-16字符，不能包含数字</span>
+                </div>
+                <div class="c">
+                    <label for="password">创建密码:</label>
+                    <input type="password" id="password" name="password" class="txt" onfocus="lightTxt(this)" onblur="checkPwd()">
+                    <span id="span_password"></span>
+                    <span id="sss2">6-32字符，可使用字母，数字，符号</span>
+                </div>
+                <div class="c">
+                    <label for="password2">确认密码:</label>
+                    <input type="password" id="password2" name="password2" class="txt" onfocus="lightTxt(this)" onblur="checkConfirmPwd()">
+                    <span id="span_password2"></span>
+                    <span id="sss3">请再次输入密码</span>
+                </div>
+                <div class="c">
+                    <label for="address">所在城市:</label>
+                    <select id="selsheng" onchange="fillshi()" class="txt"></select>
+                    <select id="selshi" class="txt"></select>
+                </div>
+                <div class="c">
+                    <label for="yanz">验证码:</label>
+                    <input type="text" id="yanz" class="txt1">
+                    <input type="image" src="images/code_img.gif" height="25" class="txt2">
+                </div>
+                <div class="c">
+                    <input type="image" src="images/register.jpg" class="btn" name="btnLogin">
+                    <font size="1px">《美淘网用户协议》</font>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script>
+    var shengs = new Array();
+    shengs['北京'] = ['海淀','门头','房山','大兴','顺义'];
+    shengs['湖北'] = ['武汉','黄石','宜昌','荆州','黄冈'];
+    function initsheng(){
+        var shengObj = document.getElementById("selsheng");
+        for (var index in shengs) {
+            var option = document.createElement("option");
+            option.text = index;
+            option.value = index;
+            shengObj.options.add(option);
+        }
+    }
+    function fillshi(){
+        var shiObj = document.getElementById("selshi");
+        shiObj.options.length = 0;
+        var currentSheng = document.getElementById("selsheng").value;
+        for (var index in shengs[currentSheng]) {
+            var option = document.createElement("option");
+            option.text = shengs[currentSheng][index];
+            option.value = shengs[currentSheng][index];
+            shiObj.options.add(option);
+        }
+    }
+    function lightTxt(obj){
+        obj.style.border = "1px solid #0094ff";
+    }
+    function checkEmail(){
+        var email = document.getElementById("email").value;
+        document.getElementById("email").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("span_email");
+        var sss = document.getElementById("sss");
+        spanObj.innerHTML = "";
+        if(email == ""){
+            spanObj.innerHTML = "Email不能为空";
+            sss.style.display = "none";
+            return false;
+        }
+        if(email.indexOf("@") == -1){
+            spanObj.innerHTML = "Email格式不正确，必须包含@";
+            sss.style.display = "none";
+            return false;
+        }
+        if(email.indexOf(".") == -1){
+            spanObj.innerHTML = "Email格式不正确，必须包含.";
+            sss.style.display = "none";
+            return false;
+        }
+        sss.style.display = "none";
+        spanObj.innerHTML = "正确";
+        return true;
+    }
+    function checkName(){
+        var name = document.getElementById("username").value;
+        document.getElementById("username").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("span_username");
+        var sss1 = document.getElementById("sss1");
+        if(name === ""){
+            spanObj.innerHTML = "必填";
+            sss1.style.display = "none";
+            return false;
+        }
+        if(name.length < 4 || name.length > 16){
+            spanObj.innerHTML = "长度在4~16之间";
+            sss1.style.display = "none";
+            return false;
+        }
+        for (var i = 0; i < name.length; i++) {
+            var content = name.substring(i,i + 1);
+            if(!isNaN(content)){
+                spanObj.innerHTML = "不能包含数字";
+                sss1.style.display = "none";
+                return false;
+            }
+        }
+        sss1.style.display = "none";
+        spanObj.innerHTML = "正确";
+        return true;
+    }
+    function checkPwd(){
+        var pwd = document.getElementById("password").value;
+        document.getElementById("password").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("span_password");
+        var sss2 = document.getElementById("sss2");
+        if(pwd === ""){
+            spanObj.innerHTML = "必填";
+            sss2.style.display = "none";
+            return false;
+        }
+        if(pwd.length < 6 || pwd.length > 32){
+            spanObj.innerHTML = "长度在6~32之间";
+            sss2.style.display = "none";
+            return false;
+        }
+        spanObj.innerHTML = "正确";
+        sss2.style.display = "none";
+        return true;
+    }
+    function checkConfirmPwd(){
+        var pwd = document.getElementById("password").value;
+        var pwd2 = document.getElementById("password2").value;
+        document.getElementById("password2").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("span_password2");
+        var sss3 = document.getElementById("sss3");
+        if(pwd != pwd2){
+            spanObj.innerHTML = "密码不一致";
+            sss3.style.display = "none";
+            return false;
+        }
+        spanObj.innerHTML = "密码一致";
+        sss3.style.display = "none";
+        return true;
+    }
+    function checkForm(){
+        return checkEmail() && checkName() && checkPwd() && checkConfirmPwd();
+    }
+</script>
+</body>
+</html>

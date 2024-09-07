@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h5>发现你喜欢</h5>
+<ul>
+    <li>游戏
+        <ul>
+            <li>土豪玩的游戏</li>
+            <li>最受欢迎网游</li>
+            <li>4399小游戏</li>
+        </ul>
+    </li>
+    <li>影视
+        <ul>
+            <li>动漫大全</li>
+            <li>360影视</li>
+            <li>热门综艺</li>
+        </ul>
+    </li>
+    <li>购物
+        <ul>
+            <li>9.9包邮</li>
+            <li>星星同款特价</li>
+            <li>国家地理杂志</li>
+        </ul>
+    </li>
+    <li>小说
+        <ul>
+            <li>热门小说下载</li>
+            <li>小说排行榜</li>
+            <li>全本免费合集</li>
+        </ul>
+    </li>
+</ul>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $(":header").css("color","red");
+        $(":header+ul>li").css("color","green");
+        $(":header+ul>li>ul>li").css("color","blue");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h5>Web前端技术</h5>
+<ul>
+    <li>使用DIV+CSS设计前端页面
+        <ul>
+            <li>页面布局</li>
+            <li>美化页面</li>
+            <li>页面特效</li>
+        </ul>
+    </li>
+    <li>使用JavaScript+jQuery制作页面特效
+        <ul>
+            <li>JavaScript基础</li>
+            <li>jQuery选择器</li>
+            <li>jQuery操作DOM</li>
+        </ul>
+    </li>
+</ul>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $(":header").css("color","red");
+        $(":header+ul").css("list-style","url(images/list.gif)");
+        $(":header+ul>li>ul").css("list-style","none");
+        $(":header+ul>li>ul").css("list-style","url(images/list_icon.gif)");
+    });
+</script>
+</body>
+</html>

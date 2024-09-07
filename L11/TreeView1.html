@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 13px;
+        }
+        a{
+            text-decoration: none;
+        }
+        div#container{
+            width: 600px;
+            margin: 0px auto;
+        }
+        div#menu{
+            float: left;
+            width: 200px;
+            height: 300px;
+            border: 1px solid #03c;
+        }
+        div#content{
+            float: right;
+            width: 380px;
+            background-color: #0c9;
+            height: 300px;
+            font: bold 14px Verdana,Geneva,sans-serif;
+            text-align: center;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            list-style: none;
+        }
+        #menu li {
+            margin: 0 0 0 30px;
+            padding: 0;
+        }
+        #menu ul li ul{
+            display: none;
+        }
+        #menu .symbols{
+            float: left;
+            width: 12px;
+            height: 12px;
+            background-repeat: no-repeat;
+            background-position: 0px 3px;
+        }
+        #menu .bgplus{
+            background-image: url("images/plus.png");
+        }
+        #menu .bgminus{
+            background-image: url("images/minus.png");
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="menu">
+        <ul class="first" id="nav">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">文化</a>
+                <ul>
+                    <li><a href="#">企业文化</a></li>
+                    <li><a href="#">企业精神</a></li>
+                    <li><a href="#">经营理念</a></li>
+                </ul>
+            </li>
+            <li><a href="#">新闻</a>
+                <ul>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">产品发布新闻</a></li>
+                </ul>
+            </li>
+            <li><a href="#">招聘</a>
+                <ul>
+                    <li><a href="#">企业招聘</a></li>
+                    <li><a href="#">个人求职</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">51job</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="content">网页的主要内容</div>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    function initate(){
+        var $menu = $("div#menu>ul").find("li:has(ul:not(:empty))");
+        $menu.each(function(){
+            var $spanMenuIcon = $("<span class='symbols'></span>");
+            $spanMenuIcon.addClass("bgplus").removeClass("bgminus");
+            $spanMenuIcon.prependTo($(this));
+            var $subMenuUl = $(this).find("ul").eq(0);
+            $spanMenuIcon.click(function(){
+                if($(this).hasClass("bgplus")){
+                    $subMenuUl.slideDown("slow");
+                    $(this).addClass("bgminus").removeClass("bgplus");
+                }else{
+                    $subMenuUl.slideUp("slow");
+                    $(this).addClass("bgplus").removeClass("bgminus");
+                }
+            });
+        });
+        var $noMenu = $("div#menu>ul").find("li:not(li:has(ul))");
+        $noMenu.each(function(){
+            $spanMenuIcon = $("<span class='symbols'></span>");
+            $spanMenuIcon.css({"background-image":"url(images/page.png)"});
+            $spanMenuIcon.prependTo($(this));
+        });
+    }
+    $(function(){
+        initate();
+    });
+</script>
+</body>
+</html>

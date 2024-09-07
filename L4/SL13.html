@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function Person(){
+            this.name = "韦萍";
+            this.age = 21;
+            this.gender = "女";
+        }
+        var person = new Person();
+        var info = "",prop;
+        for (prop in person) {
+            info += person[prop] + "";
+        }
+        document.writeln(info);
+    </script>
+</body>
+</html>

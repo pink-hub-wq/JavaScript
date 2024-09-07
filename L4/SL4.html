@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span id="days"></span>
+<script>
+    var now = new Date();
+    var year = now.getFullYear();
+    var future = new Date(year,11,25,);
+    var diff = future.getTime() - now.getTime();
+    var days = parseInt(diff / (1000*60*60*24));
+    document.getElementById("days").innerHTML = "距离" + year + "圣诞节还有：" + days + "天";
+</script>
+</body>
+</html>

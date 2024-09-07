@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ToDoList—最简单的待办事项列表</title>
+    <meta name="description" content="ToDoList无须注册即可使用，数据存储在用户浏览器的html5本地数据库里，是最简单最安全的待办事项列表应用！" />
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <!--
+            HTML4.0标准
+                div标签（盒子）
+            HTML5.0标准、CSS3
+                语义化标签
+                    header、section、label相当于div与span
+            //所有方法以及方法内容
+            //1.文本框添加方法，获取缓存中的数据，向缓存中添加数据，调用加载方法重新加载数据
+            //2.读取本地数据方法，读取缓存中的数据，返回
+            //3.读取缓存中数据，并把数据创建元素添加到页面中
+            //4.添加为进行中与已完成方法
+            //5.删除方法
+            //6.添加数据进入缓存
+
+            //关键技术点
+            //清除缓存
+            localStorage.clear();
+
+            //像缓存中存入键名为XXX的数据
+            //JSON.stringify把数组对象转换为JSON对象
+            localStorage.setItem("listtodo",JSON.stringify(data));
+
+            //从缓存中获取键名为XXX的数据
+            var data = localStorage.getItem("listtodo");
+
+            //将JSON对象转换为Javascript对象
+            JSON.parse(data);
+
+            //理解为向数组中添加新的对象
+            data.push({title:$(this).val(),done:false});
+
+            //js数组中，提供的方法splice，删除下标为X的元素
+            data.splice(index,1);
+
+            //向页面渲染前，先把标签中的原数据清空
+            $("ol,ul").empty("");
+
+    -->
+    <header>
+        <section>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+        </section>
+    </header>
+    <section>
+        <h2>正在进行 <span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+        </ol>
+        <h2>已经完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+        </ul>
+    </section>
+</body>
+
+</html>

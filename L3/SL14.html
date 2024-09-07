@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        #top{
+            width: 100%;
+            height: 80px;
+            overflow: hidden;
+        }
+        .p1{
+            float: left;
+            margin: 10px;
+        }
+        .p2{
+            float: left;
+            margin: 20px auto;
+        }
+        .middle{
+            width: 100%;
+            height: 80px;
+            overflow: hidden;
+        }
+        .middle1{
+            float: left;
+            margin: 20px 40px;
+        }
+        .middle4{
+            float: left;
+            margin: 20px 10px auto 60px;
+        }
+        #middle2{
+            float: left;
+            margin: 20px 10px auto 35px;
+        }
+        .p3{
+            float: left;
+            margin: 20px 30px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .clear{
+            clear: both;
+        }
+        #middle3{
+            float: left;
+            margin: 20px 78px;
+        }
+        .pp{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="top">
+        <img src="images/g1.jpg" class="p1" height="50px">
+        <h3 class="p2">我的购物车</h3>
+        <img src="images/step1.jpg" class="p2">
+    </div>
+    <div class="middle">
+        <input type="checkbox" id="allCb" onclick="check()" class="middle1" />
+        <h5 id="middle2">全选</h5>
+        <h5 id="middle3">项目</h5>
+        <h5 class="middle1">状态</h5>
+        <h5 class="middle1">类型/数量</h5>
+        <h5 class="middle1">单价</h5>
+        <h5 class="middle1">小计</h5>
+    </div>
+    <div class="middle">
+        <input type="checkbox" name="item" class="middle1"/>
+        <h5 class="middle4">欢乐空间量贩式KTV</h5>
+        <img src="images/item1.jpg" class="pp">
+        <h5 class="middle1">可购买</h5>
+        <select class="middle1">
+            <option>1</option>
+            <option>2</option>
+        </select>
+        <h5 class="middle1">39.9</h5>
+        <h5 class="middle1">39.9</h5>
+        <div class="clear"></div>
+    </div>
+    <div class="middle">
+        <input type="checkbox" name="item" class="middle1"/>
+        <h5 class="middle4">欢乐空间量贩式KTV</h5>
+        <img src="images/item2.jpg" class="pp">
+        <h5 class="middle1">可购买</h5>
+        <select class="middle1">
+            <option>1</option>
+            <option>2</option>
+        </select>
+        <h5 class="middle1">39.9</h5>
+        <h5 class="middle1">39.9</h5>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+    function check() {
+        var cb1 = document.getElementById("allCb");
+        var chs = document.getElementsByName("item");
+        for (var i = 0; i < chs.length; i++) {
+            chs[i].checked = cb1.checked;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层次关系</title>
+    <script>
+        function getChildren() {
+            var div1 = document.getElementById("test");
+            var ps = div1.childNodes;
+            for (var i = 0;i < ps.length;i++){
+                if(ps[i].nodeType === 1){
+                    ps[i].style.color = "blue";
+                }
+            }
+        }
+        function getParent() {
+            var div1 = document.getElementById("test");
+            var parent = div1.parentNode;
+            parent.style.backgroundColor = "pink";
+        }
+    </script>
+</head>
+<body>
+<div id="test">
+    <p>第一个段落</p>
+    <p>第二个段落</p>
+</div>
+<input type="button" value="子节点" onclick="getChildren()">
+<input type="button" value="父节点" onclick="getParent()">
+</body>
+</html>

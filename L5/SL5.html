@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div#info{
+            border: 1px solid #ccc;
+            overflow: hidden;
+            padding: 20px;
+            width: 1060px;
+        }
+        div#info dl.per{
+            float: left;
+            margin-right: 10px;
+        }
+        div#info dl.per img{
+            border: 1px solid #ccc;
+        }
+    </style>
+
+</head>
+<body>
+ <div id="info"></div>
+<div>
+    <button onclick="show()">查看</button>
+</div>
+ <script>
+     function Person(path,name,age,gender){
+         this.path = path;
+         this.name = name;
+         this.age = age;
+         this.gender = gender;
+     }
+     var persons = new Array();
+     persons[0] = new Person("images/face1.jpg","张三",24,"男");
+     persons[1] = new Person("images/face2.jpg","王培",29,"女");
+     persons[2] = new Person("images/face3.jpg","赵红",27,"女");
+     persons[3] = new Person("images/face4.jpg","李彦",22,"女");
+     persons[4] = new Person("images/face5.jpg","程军",3,"男");
+     function show(){
+         var divObj = document.getElementById("info");
+         divObj.innerHTML = "";
+         var content = "";
+         for (var index in persons) {
+             var dlObj = document.createElement("dl");
+             content = "<dt><img src='" + persons[index]['path'] +"'/> </dt>";
+             content += "<dd>姓名是：" + persons[index]['name'] + "</dd>";
+             content += "<dd>年龄是：" + persons[index]['age'] + "</dd>";
+             content += "<dd>性别是：" + persons[index]['gender'] + "</dd>";
+             dlObj.innerHTML = content;
+             dlObj.className = "per";
+             divObj.appendChild(dlObj);
+         }
+     }
+ </script>
+</body>
+</html>

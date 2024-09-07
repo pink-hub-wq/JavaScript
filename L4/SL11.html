@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Book(name,author,price){
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.show = function (){
+            alert("书名：" + this.name + "\n" + "作者：" + this.author + "\n" + "价格：" + this.price);
+        }
+    }
+    var book = new Book(".NET平台WEBUI应用开发","张江",68);
+    book.show();
+</script>
+</body>
+</html>

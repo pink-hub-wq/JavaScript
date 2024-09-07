@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onkeypress="keyFun()">
+    <input type="text" id="item1">
+    <select id="item2">
+        <option>请选择运算方式</option>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="text" id="item3">
+    =
+    <input type="text" id="item4">
+    <input type="button" value="计算" onclick="calc()">
+<script>
+    function calc(){
+        var item1= document.getElementById("item1").value.trim();
+        var item2= document.getElementById("item2").value;
+        var item3= document.getElementById("item3").value.trim();
+        if(item1 === "" || item3 === ""){
+            alert("请输入两个操作数")
+            return;
+        }
+        if((isNaN(item1)) || (isNaN(item3))){
+            alert("请输入正确的数值");
+            return;
+        }
+        if(item2 === "请选择运算方式"){
+            alert("您并没有选择运算方法")
+            return;
+        }
+        if(item2 === "+"){
+            document.getElementById("item4").value = parseFloat(item1) + parseFloat(item3);
+        }else if(item2 === "-"){
+            document.getElementById("item4").value = parseFloat(item1) - parseFloat(item3);
+        }else if(item2 === "*") {
+            document.getElementById("item4").value = parseFloat(item1) * parseFloat(item3);
+        }else{
+            if(parseFloat(item3) !== 0){
+                document.getElementById("item4").value = parseFloat(item1) / parseFloat(item3);
+            }else{
+                alert("除数不能为0");
+            }
+        }
+    }
+    function keyFun(){
+        var key = event.keyCode;
+        //判断是否单击esc取消键
+        if(key===27){
+            window.close();//在我的电脑上没反应
+        }
+        //判断是否单击enter回车键
+        if(key===13){
+            calc();
+        }
+    }
+</script>
+</body>
+</html>

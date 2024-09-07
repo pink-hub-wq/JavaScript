@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div id="content">
+    <div id="register">
+        <fieldset>
+            <legend>登录MEITAO.COM</legend>
+            <ul>
+                <li class="current" id="one1" onclick="setTab(1)">邮箱用户</li>
+                <li onclick="setTab(2)" id="one2">手机用户</li>
+            </ul>
+            <div class="box">
+                <div id="emailreg">
+                    <div>
+                        <label for="email">邮箱:</label>
+                        <input type="text" id="email" name="email" class="txt">
+                    </div>
+                    <div>
+                        <label for="password">密码:</label>
+                        <input type="password" id="password" name="password" class="txt">
+                    </div>
+                    <div>
+                        <input type="image" src="images/login.jpg" class="btn" name="btnLogin">
+                        <a href="#" class="a">忘记密码了?</a>
+                    </div>
+                </div>
+                <div id="phonereg" style="display:none">
+                        <div>
+                            <label for="p2">手机号:</label>
+                            <input type="text" id="p2" name="email" class="txt">
+                        </div>
+                        <div>
+                            <label for="password2">密码:</label>
+                            <input type="password" id="password2" name="password2" class="txt">
+                        </div>
+                        <div>
+                            <input type="image" src="images/login.jpg" class="btn" name="btnLogin">
+                            <a href="#" class="a">忘记密码了?</a>
+                        </div>
+                </div>
+        </fieldset>
+    </div>
+</div>
+</div>
+</div>
+<script>
+    function setTab(id) {
+        if (id == 1) {//如果单击的菜单是“邮箱注册”
+            document.getElementById("emailreg").style.display = "block";
+            document.getElementById("phonereg").style.display = "none";
+            document.getElementById("one1").className = "current";
+            document.getElementById("one2").className = "";
+        }
+        if (id == 2) {// 如 果 单 击 的 菜 单 是 “ 手 机 注 册 ”
+            document.getElementById("emailreg").style.display = "none";
+            document.getElementById("phonereg").style.display = "block";
+            document.getElementById("one2").className = "current";
+            document.getElementById("one1").className = "";
+        }
+    }
+</script>
+</body>
+</html>

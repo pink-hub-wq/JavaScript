@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>验证后求和</title>
+<script>
+	function calc (){
+		var num1 = document.getElementById("op1").value;
+		var num2 = document.getElementById("op2").value;
+		if(num1.trim() != "" && num2.trim() != "" ){
+			if(!isNaN(num1) && !isNaN(num2)){
+				document.getElementById("result").value = parseFloat(num1) + parseFloat(num2); 
+			}else{
+				alert("请输入正确的数值");
+			}
+		}else {
+			alert("请输入两个操作数");
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" id="op1"/> + <input type="text" id="op2"/> = <input type="text" id="result"/><br />
+    <input type="button" value="计算" onclick="calc()"/>
+</body>
+</html>

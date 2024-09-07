@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            font-size: 12px;
+        }
+        div#menu{
+            margin: 30px;
+            width: 100px;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            height: 30px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #93D6C5;
+            border-bottom: none;
+        }
+        ul li a{
+            text-decoration: none;
+        }
+        ul li title{
+            background-color: #F90;
+        }
+        ul li.lastItem{
+            background-image: url("images/up.jpg");
+            background-position: center top;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border: none;
+            border-top: 1px solid #93D6C5;
+        }
+        ul li.down{
+            background-image: url("images/down.jpg");
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li class="title">商品服务分类</li>
+        <li><a href="#">鞋包配饰</a></li>
+        <li><a href="#">运动户外</a></li>
+        <li><a href="#">珠宝手表</a></li>
+        <li><a href="#">手机数码</a></li>
+        <li><a href="#">家电办公</a></li>
+        <li><a href="#">护肤彩妆</a></li>
+        <li><a href="#">母婴用品</a></li>
+        <li><a href="#">家纺居家</a></li>
+        <li class="lastItem"></li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#menu li.lastItem").click(function (){
+            $("#menu li:gt(5):not(:last)").toggle();
+            $(this).toggleClass("down");
+        });
+    });
+</script>
+</body>
+</html>

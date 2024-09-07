@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="images/tmac.jpg">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("img").click(function (){
+            $(this).animate({
+                "width": "180px",
+                "height": "180px"
+            },"slow");
+        });
+    });
+</script>
+</body>
+</html>

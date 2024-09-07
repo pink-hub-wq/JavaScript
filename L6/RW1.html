@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">正则表达式的功能和概念类似"*"和"?"通配符所实现的功能和的功能更强大，而且更加灵活。正则表达式是英文词语" regular expression"翻译过文比中文更能体现其含义，就是符合某种规则的表达式。可以将正则表达式理解为一种对文字匹配的语言，正则表达式由一些普通字符和一些元字符组成。</p >
+    <input type="text" id="txtFind"/>
+    <input type="button" value="查找" onclick="searchInfo()"/>
+    <script>
+        var initData;
+        initData = document.getElementById("content").innerHTML;
+
+        function searchInfo() {
+            var findText = document.getElementById("txtFind").value;
+            var wordText = initData;
+            var reg = new RegExp(findText, "g");
+            var resultArr = wordText.match(reg);
+            if (resultArr == null) {
+                document.getElementById("content").innerHTML = initData;
+                alert("已经完成搜索，未找到搜索项");
+            } else {
+                var newText = wordText.replace(reg, "<span style='color:red'>" + findText + "</span>");
+                document.getElementById("content").innerHTML = newText;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 12px;
+            text-align: center;
+        }
+        div,span{
+            display: none;
+            float: left;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #ccc;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+<div id="divOne">ID</div>
+<div class="clsTwo">CLASS</div>
+<span>SPAN</span>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("div,span").css("display","block");
+        $("div#divOne").css("color","#F30");
+        $("div.clsTwo").css("backgroundColor","#ccc");
+        $("span").css("font-size","20px");
+        $("#divOne,span").css("borderStyle","dashed");
+    });
+</script>
+</body>
+</html>

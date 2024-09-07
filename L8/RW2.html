@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img#imgTip{
+            position: absolute;
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 250px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<img src="images/xgll.jpg" width="150px" height="100px" id="smallimg">
+<img id="imgTip">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        var x = 5,y = 15;
+        $("img").mouseover(function (e){
+            $("#imgTip").attr("src",this.src).css({"top": (e.pageY + y) + "px","left": (e.pageX + x) + "px"}).show();
+        });
+        $("img").mouseout(function (){
+            $("#imgTip").hide();
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+	<script>
+    	var identity = true;
+		var money = 340;
+		if(identity){//会员
+			if(money > 200){
+				money *= 0.75;
+			}else{
+				money *= 0.8;
+			}
+			document.write("会员消费340元，实际支付：" + money);	
+		}else{//非会员
+			if(money > 100){
+				money *= 0.9;
+			}
+			document.write("非会员消费340元，实际支付：" + money);
+		}
+    </script>
+</body>
+</html>

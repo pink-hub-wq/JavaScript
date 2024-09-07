@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div id="content">
+    <div id="register">
+        <fieldset>
+            <legend>注册新用户</legend>
+                <ul>
+                    <li class="current">邮箱用户</li>
+                    <li>手机用户</li>
+                </ul>
+                <div class="c">
+                    <label for="email">邮箱:</label>
+                    <input type="text" id="email" name="email" class="txt">
+                    推荐使用qq邮箱
+                </div>
+                <div class="c">
+                    <label for="username">用户名:</label>
+                    <input type="text" id="username" name="username" class="txt">
+                    4-16字符，不能包含数字
+                </div>
+                <div class="c">
+                    <label for="password">创建密码:</label>
+                    <input type="text" id="password" name="password" class="txt">
+                    6-32字符，可使用字母，数字，符号
+                </div>
+                <div class="c">
+                    <label for="password2">确认密码:</label>
+                    <input type="text" id="password2" name="password2" class="txt">
+                    请再次输入密码
+                </div>
+                <div class="c">
+                    <label for="address">所在城市:</label>
+                    <select class="txt">
+                        <option>--省</option>
+                        <option>吉林省</option>
+                        <option>辽宁省</option>
+                    </select>
+                    <select class="txt">
+                        <option>--区</option>
+                        <option>中山区</option>
+                        <option>开发区</option>
+                    </select>
+                </div>
+                <div class="c">
+                    <label for="yanzheng">验证码:</label>
+                    <input type="text" id="yanzheng" name="yanzheng" class="txt">
+                    <input type="image" src="images/code_img.gif" height="25">
+                </div>
+                <div class="c">
+                    <input type="image" src="images/register.jpg" class="btn" name="btnLogin">
+                    <font size="1px">《美淘网用户协议》</font>
+                </div>
+        </fieldset>
+    </div>
+</div>
+<script>
+    window.onload = function changeBtn() {
+        var btns = document.getElementsByName("btnLogin");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onmouseover = function () {
+                this.src = "images/reg_over.jpg";
+            }
+            btns[i].onmouseout = function () {
+                this.src = "images/register.jpg";
+            }
+        }
+    }
+</script>
+</body>
+</html>

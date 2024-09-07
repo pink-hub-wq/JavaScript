@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clsl{
+            font-weight: bold;
+            font-style: italic;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<p id="content">Write Less,Do More</p>
+<button id="btn">删除样式</button>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#content").click(function (){
+            $(this).addClass("clsl");
+        });
+        $("#btn").click(function (){
+            $("#content").removeClass("clsl");
+        });
+    });
+</script>
+</body>
+</html>

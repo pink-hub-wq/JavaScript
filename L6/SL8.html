@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>
+    请输入5-12位数字：
+    <input type="text" id="gender" onblur="checkNumber()">
+    <script>
+        function checkNumber(){
+            var regExp = new RegExp("^\\d{5,12}$");
+            var input = document.getElementById("gender").value;
+            if(regExp.test(input)){
+                alert("输入正确");
+            }else{
+                alert("只能输入5-12位数字");
+            }
+        }
+    </script>
+</p>
+</body>
+</html>

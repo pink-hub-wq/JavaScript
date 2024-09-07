@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作登录页面</title>
+    <style>
+        body{
+            font-size: 12px;
+        }
+        div#login{
+            margin: 0px
+            auto;
+            width: 300px;
+        }
+        div#login
+        fieldset{
+            border: 1px;
+            height: 120px;
+            padding: 20px;
+        }
+        div#login fieldset
+            legend{
+            margin-left: 25px;
+        }
+        div#login fieldset
+        input{
+            border: 1px solid #ccc;
+        }
+        div#login fieldset
+        input.txtInput{
+            width: 180px;
+        }
+    </style>
+</head>
+<body onkeypress="keyFun()">
+<div id="login">
+    <form name="loginForm">
+        <fieldset>
+            <legend>用户登录</legend>
+            <p>
+                <label>邮箱：</label>
+                <input name="txtEmail" type="text" class="txtInput">
+            </p>
+            <p>
+                <label>密码：</label>
+                <input name="txtPwd" type="password" class="txtInput">
+            </p>
+            <p>
+                <input type="button" value="登录" onclick="checkLogin()">
+                <a href="#">忘记密码了？</a>
+            </p>
+        </fieldset>
+    </form>
+</div>
+<script>
+    function checkLogin(){
+        var userEmail = document.loginForm.txtEmail.value;
+        var userPwd = document.loginForm.txtPwd.value;
+        if (userEmail==="494581236@qq.com" && userPwd==="1234567"){
+            alert("登录成功");
+        }else{
+            alert("登录失败");
+        }
+    }
+    function keyFun(){
+        var key = event.keyCode;
+        //判断是否单击esc取消键
+        if(key===27){
+            window.close();//在我的电脑上没反应
+        }
+        //判断是否单击enter回车键
+        if(key===13){
+            checkLogin();
+        }
+    }
+</script>
+</body>
+</html>

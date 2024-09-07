@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 12px;
+        }
+        dl{
+            height: 200px;
+            width: 400px;
+        }
+        dt{
+            float: left;
+            margin-right: 20px;
+        }
+        dd{
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<dl id="movie">
+    <dt><img src="images/frozen.jpg" width="150" height="200"/>
+        <dd><span>评分：</span><span>8.4</span></dd>
+        <dd><span>别名：</span><span>冰雪大冒险/冰雪奇缘</span></dd>
+        <dd><span>演员：</span><a href="#">易迪娜·门泽尔</a></dd>
+        <dd><span>导演：</span><a href="#">克里斯·巴克Jennifer Lee</a></dd>
+        <dd><span>地区：</span>美国</dd>
+        <dd><span>简介：</span>《Frozen》讲述了一个诅咒令王国被冰天雪地永久覆盖，乐观、无谓的安娜（由克里斯汀·贝尔配音）和一个大胆的。。</dd>
+        <dd><a href="#" title="更多">more</a></dd>
+    </dt>
+</dl>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#movie>dd>span").css("color","red");
+        $("#movie dd span:eq(1)").css("color","orange");
+        $("#movie a:not([title])").css("text-decoration","none");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div id="content">
+    <div id="register">
+        <fieldset>
+            <legend>注册新用户</legend>
+            <ul>
+                <li class="current" id="one1" onclick="setTab(1)">邮箱注册</li>
+                <li onclick="setTab(2)" id="one2">手机注册</li>
+            </ul>
+            <div class="box">
+                <div id="emailreg">
+                    <div class="c">
+                        <label for="email">邮箱:</label>
+                        <input type="text" id="email" name="email" class="txt">
+                        <font size="2px">推荐使用qq邮箱</font>
+                    </div>
+                    <div class="c">
+                        <label for="username">用户名:</label>
+                        <input type="text" id="username" name="username" class="txt">
+                        <font size="2px">4-16字符，不能包含数字</font>>
+                    </div>
+                    <div class="c">
+                        <label for="password">创建密码:</label>
+                        <input type="text" id="password" name="password" class="txt">
+                        <font size="2px">6-32字符，可使用字母，数字</font>
+                    </div>
+                    <div class="c">
+                        <label for="password2">确认密码:</label>
+                        <input type="text" id="password2" name="password2" class="txt">
+                        <font size="2px">请再次输入密码</font>
+                    </div>
+                    <div class="c">
+                        <label for="address">所在城市:</label>
+                        <select class="txt">
+                            <option>--省</option>
+                            <option>吉林省</option>
+                            <option>辽宁省</option>
+                        </select>
+                        <select class="txt">
+                            <option>--区</option>
+                            <option>中山区</option>
+                            <option>开发区</option>
+                        </select>
+                    </div>
+                    <div class="c">
+                        <label for="yanzheng">验证码:</label>
+                        <input type="text" id="yanzheng" name="yanzheng" class="txt">
+                        <input type="image" src="images/code_img.gif" height="25">
+                    </div>
+                    <div class="c">
+                        <input type="image" src="images/register.jpg" class="btn" name="btnLogin">
+                        <font size="1px">《美淘网用户协议》</font>
+                    </div>
+                </div>
+                <div id="phonereg" style="display:none">
+                    <div class="c">
+                        <label for="phone1">电话:</label>
+                        <input type="text" id="phone1" name="phone1" class="txt">
+                        <font size="2px">用于登录，找回密码，不会公开</font>
+                    </div>
+                    <div class="c">
+                        <label for="ym2">短信验证码:</label>
+                        <input type="text" id="ym2" name="ym2" class="txt">
+                        <font size="2px">请输入收到的短信验证码</font>
+                    </div>
+                    <div class="c">
+                        <label for="password3">创建密码:</label>
+                        <input type="text" id="password3" name="password3" class="txt">
+                        <font size="2px">6-32字符，可使用字母，数字</font>
+                    </div>
+                    <div class="c">
+                        <label for="password4">确认密码:</label>
+                        <input type="text" id="password4" name="password4" class="txt">
+                        <font size="2px">请再次输入密码</font>
+                    </div>
+                    <div class="c">
+                        <input type="image" src="images/register.jpg" class="btn" name="btnLogin">
+                        <font size="1px">《美淘网用户协议》</font>
+                    </div>
+                </div>
+        </fieldset>
+    </div>
+</div>
+
+</div>
+<script>
+    function setTab(id) {
+        if (id == 1) {//如果单击的菜单是“邮箱注册”
+            document.getElementById("emailreg").style.display = "block";
+            document.getElementById("phonereg").style.display = "none";
+            document.getElementById("one1").className = "current";
+            document.getElementById("one2").className = "";
+        }
+        if (id == 2) {// 如 果 单 击 的 菜 单 是 “ 手 机 注 册 ”
+            document.getElementById("emailreg").style.display = "none";
+            document.getElementById("phonereg").style.display = "block";
+            document.getElementById("one2").className = "current";
+            document.getElementById("one1").className = "";
+        }
+    }
+</script>
+</body>
+</html>

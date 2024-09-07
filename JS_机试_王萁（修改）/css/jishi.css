@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+}
+
+li {
+    width: 200px;
+    height: 60px;
+    background-color: #93D6C5;
+    margin: 30px auto;
+    text-align: center;
+    list-style: none;
+    line-height: 60px;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

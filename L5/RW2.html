@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #info{
+        float: left;
+        border: 1px solid green;
+        width: 200px;
+        height: 780px;
+        background-color: orange;
+        overflow: hidden;
+    }
+    #info1{
+        float: left;
+        border: 1px solid green;
+        width: 1200px;
+        height: 780px;
+        margin-left:3%;
+        overflow: hidden;
+    }
+    #info2{
+        background-color: #bb7a2a;
+        text-align: center;
+        color: white;
+        height: 50px;
+        float: left;
+        width: 100%;
+        line-height: 50px;
+        overflow: hidden;
+    }
+    #info3{
+        background-color: #bb7a2a;
+        float: left;
+        width: 100%;
+        color: white;
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+    }
+    #z{
+        height: 40px;
+        width: 8%;
+        line-height: 40px;
+    }
+    #all{
+        width: 1500px;
+        height: 800px;
+    }
+    #foods{
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+        margin-top: 60px;
+    }
+    #foods li a{
+        display: block;
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin:20px auto;
+    }
+    #foods li a:hover{
+        background-color: #ddd;
+        color: black;
+    }
+    #show{
+        float: left;
+        width: 100%;
+        height: 720px;
+    }
+    .eachPro{
+        float: left;
+        width: 280px;
+        height: 300px;
+    }
+    .c{
+        font-size: 10px;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+</style>
+<body>
+<div id="all">
+    <div id="info">
+        <div id="info2">美食特产</div>
+        <ul id="foods">
+
+        </ul>
+    </div>
+    <div id="info1">
+        <div id="info3">
+            排序方式:
+            <select id="z">
+                <option>请选择：</option>
+            </select>
+        </div>
+        <div id="show">
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function initType(){
+        var foodType = new Array("休闲零食","营养保健","参茸滋养","茶叶","酒类","全球美食","生鲜蔬果","粮油米面","奶粉乳品");
+        for (var i in foodType) {
+            var obj = document.createElement("li");
+            obj.innerHTML = "<a href='#'>" + foodType[i] + "</a>";
+            document.getElementById("foods").appendChild(obj);
+        }
+    }
+    function Foods(desc,price,sale,pic){
+        this.desc = desc;
+        this.price = price;
+        this.sale = sale;
+        this.pic = pic;
+    }
+    var foods = new Array();
+    foods[0] = new Foods("【百草味】坚果零食特产干果 奶油味夏威夷果200g*3包送开果器",46.9,9257,"images/food1.jpg");
+    foods[1] = new Foods("【顺丰包邮】费列罗进口巧克力48粒零食品 妇女节礼盒生日礼物",133.00,13000,"images/food2.jpg");
+    foods[2] = new Foods("卡可芙 进口料408克臻萃松露巧克力8口味 礼盒装 零食品特价包邮",19.90,72000,"images/food3.jpg");
+    foods[3] = new Foods("零食坚果特产 二级美国山核桃碧根果长寿果特价 250g装",7.5,220,"images/food4.jpg");
+    foods[4] = new Foods("珠穆朗玛金牌金丝肉丝饼30g 福州特产月饼 糕点皮薄 特价20个包邮",0.1,437,"images/food5.jpg");
+    foods[5] = new Foods("河南特产 香辣零食 卫龙亲嘴烧 辣条 辣面筋 13克 60包包邮 批发",0.1,1083,"images/food6.jpg");
+    foods[6] = new Foods("80后美食 儿时记忆 素火爆鸡筋 麻辣素食 满50包包邮全国",0.1,466,"images/food7.jpg");
+    foods[7] = new Foods("味芝元鱼排20克洞庭野生香辣烟熏鱼块 湖南特产零食小吃 味之源",0.99,3057,"images/food8.jpg");
+    function showFoods(){
+        var divPro = document.getElementById("show");
+        divPro.innerHTML = "";
+        for (var i in foods) {
+            var dlobj = document.createElement("dl");
+            var content = "<dt class='c'><img src='" + foods[i]["pic"] + "'/></dt>";
+            content += "<dd class='c'><p>¥<span>" + foods[i]["price"] + "</span></p>销量：<span>" + foods[i]["sale"] + "</span></dd>";
+            content += "<dd class='c'>" + foods[i]["desc"] + "</dd>";
+            dlobj.innerHTML = content;
+            dlobj.className = "eachPro";
+            divPro.appendChild(dlobj);
+        }
+    }
+    window.onload = function (){
+        initType();
+        showFoods();
+    }
+</script>
+</body>
+</html>

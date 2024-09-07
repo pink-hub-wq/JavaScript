@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 13px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        div#menu {
+            float: left;
+            width: 200px;
+            height: 300px;
+            border: 1px solid #03c;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #menu li {
+            margin: 0 0 0 30px;
+            padding: 0;
+        }
+
+        .symbols {
+            float: left;
+            width: 12px;
+            height: 12px;
+            background-repeat: no-repeat;
+            background-position: 0px 3px;
+        }
+
+        #menu .bgplus {
+            background-image: url("images/plus.png");
+        }
+
+        #menu .bgminus {
+            background-image: url("images/minus.png");
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul class="first" id="nav">
+        <li><a href="#">全部商品分类</a>
+            <ul>
+                <li><a href="#">美食</a></li>
+                <li><a href="#">旅游</a></li>
+                <li><a href="#">酒店</a>
+                    <ul>
+                        <li><a href="#">豪华酒店</a></li>
+                        <li><a href="#">公寓酒店</a></li>
+                        <li><a href="#">度假首选</a></li>
+                        <li><a href="#">经济有爱</a></li>
+                        <li><a href="#">客栈关怀</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">电影</a>
+                <li><a href="#">KTV</a>
+                <li><a href="#">时尚</a>
+                <li><a href="#">生活服务</a>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    function initate() {
+        var $menu = $("div#menu>ul").find("li:has(ul:not(:empty))");
+        $menu.each(function () {
+            var $spanMenuIcon = $("<span class='symbols'></span>");
+            $spanMenuIcon.addClass("bgplus").removeClass("bgminus");
+            $spanMenuIcon.prependTo($(this));
+            var $subMenuUl = $(this).find("ul").eq(0);
+            $spanMenuIcon.click(function () {
+                if ($(this).hasClass("bgplus")) {
+                    $subMenuUl.slideDown("slow");
+                    $(this).addClass("bgminus").removeClass("bgplus");
+                } else {
+                    $subMenuUl.slideUp("slow");
+                    $(this).addClass("bgplus").removeClass("bgminus");
+                }
+            });
+        });
+        var $noMenu = $("div#menu>ul").find("li:not(li:has(ul))");
+        $noMenu.each(function () {
+            $spanMenuIcon = $("<span class='symbols'></span>");
+            $spanMenuIcon.css({"background-image": "url(images/page.png)"});
+            $spanMenuIcon.prependTo($(this));
+        });
+    }
+
+    $(function () {
+        initate();
+    });
+</script>
+</body>
+</html>

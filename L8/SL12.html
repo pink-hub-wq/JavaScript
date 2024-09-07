@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>流行歌曲</h3>
+<ul>
+    <li>想起——韩雪</li>
+    <li>没那么简单——黄小琥</li>
+    <li>指望——郁可唯</li>
+</ul>
+<button>替换</button>
+    <script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("button").click(function (){
+            var $li = $("<li>勿忘心安——张杰</li>");
+            $("ul li:last").replaceWith($li);
+        });
+    });
+</script>
+</body>
+</html>

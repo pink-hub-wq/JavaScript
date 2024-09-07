@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>默认的事件处理程序</title>
+<script>
+	function check(){
+		var userName = document.getElementById("name").value;
+		if(userName == ""){
+			alert("请输入用户名");
+		}else{
+			document.getElementById("frm").submit();
+		}
+	}
+</script>
+</head>
+
+<body>
+	<form action="info.html" id="frm">
+    	<p>用户名：<input type="text" id="name" /></p>
+        <p><input type="button" value="提交" onclick="check()" /></p>
+    </form>
+</body>
+</html>

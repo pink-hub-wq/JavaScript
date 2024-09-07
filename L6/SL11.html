@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    请输入：<input type="text" id="info" onblur="checkInfo()">
+    <script>
+        function checkInfo(){
+            var str = document.getElementById("info").value;
+            var regExp = /[\.]/g;
+            document.getElementById("info").value = str.replace(regExp,"");
+        }
+    </script>
+</p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">Write Less,Do More</p>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#content").click(function (){
+            $(this).css("font-weight","bold");
+            $(this).css("font-style","italic");
+            $(this).css("background-color","#eee");
+        });
+    });
+</script>
+</body>
+</html>

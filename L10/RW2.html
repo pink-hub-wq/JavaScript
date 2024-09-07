@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            font-size: 12px;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            height: 25px;
+            line-height: 25px;
+        }
+        h3{
+            width: 162px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #C33;
+        }
+        #book{
+            overflow: hidden;
+            height: 75px;
+            padding: 5px;
+            border: 1px solid red;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+<h3>近七日畅销榜</h3>
+<div id="book">
+    <ul class="express">
+        <li>傲慢与偏见</li>
+        <li>玻璃鞋全集（50集34VCD）</li>
+        <li>澳大利亚：假日之旅</li>
+        <li>浪漫地中海：假日之旅</li>
+        <li>欧陆风情：假日之旅</li>
+        <li>社交疯狂项语</li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    function movePrice() {
+        var stopScroll = false;
+        var marginTop = 0;
+        setInterval(function () {
+            if (stopScroll) return;
+            $(".express").children("li").first().animate({"margin-top": marginTop--}, 0, function () {
+                var $first = $(this);
+                if (!$first.is(":animated")) {
+                    if ((-marginTop) > $first.height()) {
+                        $first.css({"margin-top": 0}).appendTo($(".express"));
+                        marginTop = 0;
+                    }
+                }
+            });
+        }, 50);
+        $(".express").mouseover(function () {
+            stopScroll = true;
+        }).mouseout(function () {
+            stopScroll = false;
+        });
+    }
+
+    $(function () {
+        movePrice()
+    });
+</script>
+</body>
+</html>

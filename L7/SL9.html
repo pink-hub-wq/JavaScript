@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input.txt{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<form id="form1">
+    <p id="pa">
+        <input type="text" value="可用文本框" class="txt">
+        <input type="text" value="不可用文本框" disabled="disabled" class="txt">
+        <button>选取可用文本框</button>
+    </p>
+    <p id="pb">请选择你是否喜欢旅游：<br>
+        <input type="radio" value="喜欢" name="trip">喜欢
+        <input type="radio" value="不喜欢" name="trip">不喜欢
+        <input type="radio" value="无所谓" name="trip">无所谓
+        <button>显示</button>
+    </p>
+    <p id="pc">您对那些运动感兴趣，请选择：<br>
+        <input type="checkbox" value="跑步" name="sport">跑步
+        <input type="checkbox" value="打球" name="sport">打球
+        <input type="checkbox" value="登山" name="sport">登山
+        <input type="checkbox" value="跳肚皮舞" name="sport">跳肚皮舞
+        <button>显示</button>
+    </p>
+    <p id="pd">您最喜欢的足球球星：<br>
+        <select>
+            <option value="李毅">李毅</option>
+            <option value="卡卡">卡卡</option>
+            <option value="梅西">梅西</option>
+            <option value="C罗">C罗</option>
+        </select>
+        <button>显示</button>
+    </p>
+</form>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#pa button").click(function (){
+            $("#pa>input[type='text']:enabled").css("border", "1px solid #039");
+        });
+        $("#pb button").click(function (){
+            $("#pb>input[type='radio']:checked").css("backgroundColor", "#63c");
+        });
+        $("#pc button").click(function (){
+            $("#pc>input[type='checkbox']:checked").css("backgroundColor", "#63c");
+        });
+        $("#pd button").click(function (){
+            var info = "您最喜欢的足球球星是：" + $("#pd select option:selected").val();
+            alert(info);
+        });
+    });
+</script>
+</body>
+</html>

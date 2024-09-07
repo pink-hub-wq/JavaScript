@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>基本过滤器</h1>
+<ul>
+    <li>基本过滤选择器</li>
+    <li>内容过滤选择器</li>
+    <li>可见性过滤选择器</li>
+    <li>属性过滤选择器</li>
+</ul>
+<button id="btnTitle">标题样式</button>
+<button id="btnEven">索引是偶数项样式</button>
+<button id="btnOdd">索引是奇数项样式</button>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#btnTitle").click(function (){
+            $(":header").css("color","#f00");
+        });
+        $("#btnEven").click(function (){
+            $("li:Even").css("color","#00f");
+        });
+        $("#btnOdd").click(function (){
+            $("li:Odd").css("color","#f93");
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div id="content">
+    <div id="register">
+        <fieldset>
+            <legend>登录MEITAO.COM</legend>
+                <ul>
+                    <li class="current">邮箱用户</li>
+                    <li>手机用户</li>
+                </ul>
+                <div>
+                    <label for="email">邮箱:</label>
+                    <input type="text" id="email" name="email" class="txt">
+                </div>
+                <div>
+                    <label for="password">密码:</label>
+                    <input type="password" id="password" name="password" class="txt">
+                </div>
+                <div>
+                    <input type="image" src="images/login.jpg" class="btn" name="btnLogin">
+                    <a href="#" class="a">忘记密码了?</a>
+                </div>
+        </fieldset>
+    </div>
+</div>
+<script>
+    window.onload = function changeBtn() {
+        var btns = document.getElementsByName("btnLogin");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onmouseover = function () {
+                this.src = "images/login_over.jpg";
+            }
+            btns[i].onmouseout = function () {
+                this.src = "images/login.jpg";
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #info{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">显示</button>
+<img src="images/flower1.jpg" id="info" width="200px">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#btn").click(function (){
+            $("#info").show(2000);
+        });
+    });
+</script>
+</body>
+</html>

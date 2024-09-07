@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0px;
+  padding:0px;
+}
+body{ font-size:12px;}
+div#container{
+	width:500px;
+	margin:0px auto;
+}
+#menu ul{list-style:none;
+}
+#menu ul.first{ 
+               height:43px;
+			   background-image:url(../images/menu-bg.gif);
+			   background-repeat:repeat-x;
+}
+#menu ul.first li{
+	           float:left;	
+			   }
+#menu ul.first li a{
+	          padding:0px 15px;
+			  height:43px;
+			  line-height:43px;
+			  text-decoration:none;
+			  display:block;
+			  text-align:center;			  
+}
+#menu ul.first li ul li{
+	           float:none;
+			   position:relative;			
+}
+/*下级菜单*/
+#menu ul.first li ul li a{
+	         height:18px;
+			 line-height:18px;
+			 display:block;
+			 color:white;				
+}
+/*li下的ul菜单*/
+#menu ul.first li ul{
+	      border:2px solid blue;
+	      display:none;
+		  position:absolute;	/*脱离文档流*/
+		  background-color:#ccc;
+}
+div#content{
+	width:500px;
+	height:200px;
+	background-color:#9C0;
+	text-align:center;
+	font:bold 15px Verdana, Geneva, sans-serif;
+}

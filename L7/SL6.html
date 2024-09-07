@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            display: none;
+        }
+        .current{
+            border: 1px solid #666;
+        }
+    </style>
+</head>
+<body>
+<img src="images/car.jpg" class="pic">
+<p>
+    <button id="btnShow">显示</button>
+    <button id="btnHidden">隐藏</button>
+</p>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#btnShow").click(function (){
+            $(".pic:hidden").show().addClass("current");
+        });
+        $("#btnHidden").click(function (){
+            $(".pic:visible").hide();
+        });
+    });
+</script>
+</body>
+</html>

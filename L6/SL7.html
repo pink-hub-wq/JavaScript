@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        性别：<input type="text" id="gender" onblur="checkSex()">
+    </p>
+<script>
+    function checkSex(){
+        var regExp = new RegExp("男|女");
+        var input = document.getElementById("gender").value;
+        if(regExp.test(input)){
+            alert("输入正确");
+        }else{
+            alert("性别只能是男或女");
+        }
+    }
+</script>
+</body>
+</html>

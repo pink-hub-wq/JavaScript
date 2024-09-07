@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function changeURL() {
+        // 获取选择的列表项的值
+            var url = document.getElementById("sel").value;
+        //设置当前浏览器窗口的地址栏url
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+<h3>友情链接：</h3>
+<select id="sel" onchange="changeURL()">
+    <option>请选择</option>
+    <option value="https://www.baidu.com">百度</option>
+    <option value="https://www.163.com">网易</option>
+    <option value="https://www.taobao.com">淘宝</option>
+    <option value="https://www.sina.com">新浪</option>
+</select>
+</body>
+</html>

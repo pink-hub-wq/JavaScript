@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            font-size: 12px;
+        }
+        div#register fieldset {
+            border: 1px solid #ccc;
+            width: 670px;
+            padding: 10px;
+        }
+        div#register fieldset legend {
+            margin-left: 20px;
+        }
+        div#register label {
+            width: 70px;
+            display: block;
+            float: left;
+            text-align: right;
+        }
+        div#register .txt {
+            border: 1px solid #ccc;
+            width: 130px;
+        }
+        div#register span {
+            color: red;
+        }
+    </style>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function checkName() {
+            var name = $("txtName").value;
+            var name_prompt = $("span_name");
+            var nameReg = /^[0-9a-zA-Z][0-9a-zA-Z_.-]{2,16}[0-9a-zA-Z]$/;
+            if (!nameReg.test(name)) {
+                name_prompt.innerHTML = "错误，由字母、数字、下划线、点、减号组成的4-18位字符，以数字、字母开头或结尾";
+                return false;
+            }
+            name_prompt.innerHTML = "格式正确";
+            return true;
+        }
+        function checkNick() {
+            var nick = $("txtNick").value;
+            var nick_prompt = $("span_nick");
+            var nickReg = /^([\u4e00-\u9fa5]|\w)+$/;
+            var chinaReg = /[\u4e00-\u9fa5]/g;
+            var len = nick.replace(chinaReg, "ab").length;
+            if (!nickReg.test(nick) || len < 4 || len > 20) {
+                nick_prompt.innerHTML = "错误，包含汉字、字母、数字、下划线的4-20位字符，汉字占两个字符";
+                return false;
+            }
+            nick_prompt.innerHTML = "格式正确";
+            return true;
+        }
+        function check() {
+            if (checkName() && checkNick()) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+<div id="register">
+    <div id="Div1">
+        <form onsubmit="return check()" action="success.html">
+            <fieldset>
+                <legend>请填写注册信息</legend>
+                <p>
+                    <label>用户名：</label>
+                    <input type="text" id="txtName" class="txt" onblur="checkName()"/>
+                    <span id="span_name">由字母、数字、下划线、点、减号组成的4-18位字符，以数字、字母开头或结尾</span>
+                </p>
+                <p>
+                    <label>昵称：</label>
+                    <input type="text" id="txtNick" class="txt" onblur="checkNick()"/>
+                    <span id="span_nick">包含汉字、字母、数字、下划线的4-20位字符，汉字占两个字符</span>
+                </p>
+                <p><input type="submit" value="提交"/></p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

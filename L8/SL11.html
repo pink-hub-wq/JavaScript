@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>流行歌曲</h3>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("h3").click(function (){
+            var $ul = $("<ul></ul>");
+            var $li1 = $("<li>想起——韩雪</li>");
+            var $li2 = $("<li>没那么简单——黄小琥</li>");
+            var $li3 = $("<li>指望——郁可唯</li>");
+            $(this).after($ul);
+            $ul.append($li1);
+            $ul.append($li2);
+            $ul.append($li3);
+        });
+    });
+</script>
+</body>
+</html>

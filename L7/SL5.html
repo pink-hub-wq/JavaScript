@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 20px;
+        }
+        p{
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<div>ABCD</div>
+<div></div>
+<div><span>嵌套span标签</span></div>
+<p>
+    <button id="btnContain">内容包含A的元素</button>
+    <button id="btnEmpty">空元素</button>
+    <button id="btnHas">含有span的元素</button>
+    <button id="btnParent">非空元素</button>
+</p>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#btnContain").click(function (){
+            $("div:contains('A')").css('backgroundColor','#F00');
+        });
+        $("#btnEmpty").click(function (){
+            $("div:empty").css('backgroundColor','#0F0');
+        });
+        $("#btnHas").click(function (){
+            $("div:has(span)").css('backgroundColor','#00F');
+        });
+        $("#btnParent").click(function (){
+            $("div:parent").css('color','white');
+        });
+    });
+</script>
+</body>
+</html>

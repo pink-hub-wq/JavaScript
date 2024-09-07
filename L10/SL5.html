@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><img src="images/two.jpg"></p>
+<p>
+    <select id="sel">
+        <option value="0.2">0.2</option>
+        <option value="0.4">0.4</option>
+        <option value="0.6">0.6</option>
+        <option value="0.8">0.8</option>
+        <option value="1" selected="selected">1</option>
+    </select>
+</p>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        $("#sel").change(function (){
+            var opacity = $(this).val();
+            $("img").fadeTo(3000,opacity);
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        font-size: 12px;
+    }
+    div#register .txt{
+        border: 1px solid #ccc;
+    }
+</style>
+
+<body>
+    <div id="register">
+        <form onsubmit="return check()" action="success.html">
+            <p>
+                <label>邮箱：</label>
+                <input name="" type="text" id="txtEmail" class="txt" onblur="checkEmail()">
+                <span id="span_email"></span>
+            </p>
+            <p>
+                <label>密码：</label>
+                <input name="" type="password" id="txtPwd" class="txt" onblur="checkPwd()">
+                <span id="span_pwd"></span>
+            </p>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function checkPwd(){
+            var pwd = $("txtPwd").value;
+            var objSpan = $("span_pwd");
+            objSpan.innerHTML = "";
+            if(pwd == ""){
+                objSpan.innerHTML = "密码不能为空";
+                return false;
+            }
+            if(pwd.length < 6){
+                objSpan.innerHTML = "密码必须大于或等于6个字符";
+                return false;
+            }
+            return true;
+        }
+        function checkEmail(){
+            var email = $("txtEmail").value;
+            var obj = $("span_email");
+            obj.innerHTML="";
+            if(email == ""){
+                obj.innerHTML = "Email不能为空";
+                return false;
+            }
+            if(email.indexOf("@") == -1){
+                obj.innerHTML = "Email格式不正确，必须包含@";
+                return false;
+            }
+            if(email.indexOf(".") == -1){
+                obj.innerHTML = "Email格式不正确，必须包含.";
+                return false;
+            }
+            return true;
+        }
+        function check(){
+            if(checkPwd() && checkEmail() ){
+                return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

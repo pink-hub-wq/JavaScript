@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-size:13px;
+}
+a{
+	text-decoration:none;
+}
+div#container{
+	width:600px;
+	margin:0px auto;
+}
+div#menu{
+	float:left;
+	width:200px;
+	height:400px;
+	border:1px solid #03C;
+}
+div#content{
+	float:right;
+	width:380px;
+	background-color:#0C9;
+	height:400px;
+}
+ ul{
+  margin:0;				
+  padding:0;
+  cursor:pointer;		
+  list-style:none;	
+}
+
+#menu li{
+  margin:0 0 0 30px; /*左边的缩进*/
+  padding:0; 		
+}
+/*隐藏下级菜单*/
+#menu ul li ul{
+	display:none;
+}
+#menu .symbols{
+  float:left;
+  width:12px;
+  height:1em;
+  background-position:0 50%;
+  background-repeat:no-repeat;
+}
+#menu .bgplus{
+	background-image:url(../images/plus.png);
+}
+#menu .bgminus{
+	background-image:url(../images/minus.png)
+}

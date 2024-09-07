@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+	友情链接：<select onchange="changeLink(this)">
+    		<option value="请选择">请选择</option>
+    		<option value="https://www.le.com/">乐视网高清</option>
+            <option value="https://sports.sina.com.cn/">新浪体育</option>
+            <option value="https://www.taobao.com/">淘宝</option>
+    		</select>
+	<script>
+    	function changeLink(obj){
+			var site = obj.value;
+			if(site != "请选择"){
+				window.open(site);
+			}
+		}
+    
+    </script>
+</body>
+</html>

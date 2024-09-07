@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>onclick事件</title>
+<script>
+	function showGender(obj){
+		alert("您选择的性别是：" + obj.value);
+	}
+</script>
+</head>
+
+<body>
+	性别：<input type="radio" name="gender" value="男" onclick="showGender(this)" />男
+         <input type="radio" name="gender" value="女" onclick="showGender(this)" />女
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content">
+    <input type="button" value="单击">
+</div>
+<div id="result"></div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        var count = 0;
+        $("body,div#content,input[type='button']").click(function (){
+            count++;
+            $("div#result").text("单击事件触发了" + count + "次");
+        });
+    });
+</script>
+</body>
+</html>

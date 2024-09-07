@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        p.pInit {
+            width: 390px;
+            height: 55px;
+            line-height: 55px;
+            padding-left: 20px;
+        }
+        .pFocus{
+            background-color: #edffd5;
+        }
+        .txtInit {
+            border: 1px solid #666;
+        }
+        .txtFocus{
+            border: 1px solid #009;
+        }
+        .spanInit {
+            width: 90px;
+            height: 55px;
+            background-repeat: no-repeat;
+            background-position: left;
+        }
+        .spanBlurOk{
+            background-image: url("images/register_write_ok.gif");
+        }
+    </style>
+</head>
+<body>
+<form id="frmReg" action="#">
+    <p id="email" class="pInit">
+        邮箱：<input type="text" id="txtEmail" class="txtInit">
+        <span class="spanInit" id="emailSpan">邮箱名@域名</span>
+    </p>
+</form>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    function checkEmail(emailInfo){
+        var emailReg = /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+        return emailReg.test(emailInfo);
+    }
+    $(function (){
+        $("#txtEmail").trigger("focus");
+        $("#txtEmail").focus(function (){
+            $(this).removeClass("txtInit").addClass("txtFocus");
+        });
+        $("#txtEmail").blur(function (){
+            $(this).removeClass("txtFocus").addClass("txtInit")
+            $(this).parent("p").removeClass("pFocus");
+            var emailInfo = $("#txtEmail").val();
+            if(emailInfo.length==0){
+                $("#emailSpan").text("邮箱地址必填");
+            }else {
+                if(checkEmail(emailInfo)){
+                    $("#emailSpan").addClass("spanBlurOk").text("");
+                }else {
+                    $("#emailSpan").removeClass("spanBlurOk").text("错误，如hj@tom.com");
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

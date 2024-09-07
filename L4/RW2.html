@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 12px;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            width: 350px;
+            padding: 15px;
+        }
+        legend {
+            margin-left: 15px;
+        }
+        input.txt{
+            border: 1px solid #ccc;
+            width: 140px;
+        }
+        p label{
+            display: block;
+            width: 80px;
+            text-align: right;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<form action="" onsubmit="return checkForm()">
+    <fieldset>
+        <legend>用户注册</legend>
+        <p>
+            <label>用户名：</label>
+            <input type="text" id="txtName" class="txt" onfocus="lightTxt(this)" onblur="checkName()">
+            <span id="nameInfo"></span>
+        </p>
+        <p>
+            <label>密码：</label>
+            <input type="password" id="txtPwd" class="txt" onfocus="lightTxt(this)" onblur="checkPwd()">
+            <span id="pwdInfo"></span>
+        </p>
+        <p>
+            <label>确认密码：</label>
+            <input type="password" id="txtConfirmPwd" class="txt" onfocus="lightTxt(this)" onblur="checkConfirmPwd()">
+            <span id="confirmPwdInfo"></span>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </fieldset>
+</form>
+<script>
+    function lightTxt(obj){
+        obj.style.border = "1px solid #0094ff";
+    }
+    function checkName(){
+        var name = document.getElementById("txtName").value;
+        document.getElementById("txtName").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("nameInfo");
+        if(name === ""){
+            spanObj.innerHTML = "必填";
+            return false;
+        }
+        if(name.length < 4 || name.length > 16){
+            spanObj.innerHTML = "长度在4~16之间";
+            return false;
+        }
+        for (var i = 0; i < name.length; i++) {
+            var content = name.substring(i,i + 1);
+            if(!isNaN(content)){
+                spanObj.innerHTML = "不能包含数字";
+                return false;
+            }
+        }
+        spanObj.innerHTML = "正确";
+        return true;
+    }
+    function checkPwd(){
+        var pwd = document.getElementById("txtPwd").value;
+        document.getElementById("txtPwd").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("pwdInfo");
+        if(pwd === ""){
+            spanObj.innerHTML = "必填";
+            return false;
+        }
+        if(pwd.length < 6 || pwd.length > 32){
+            spanObj.innerHTML = "长度在6~32之间";
+            return false;
+        }
+        spanObj.innerHTML = "正确";
+        return true;
+    }
+    function checkConfirmPwd(){
+        var pwd = document.getElementById("txtPwd").value;
+        var pwd2 = document.getElementById("txtConfirmPwd").value;
+        document.getElementById("txtConfirmPwd").style.borderColor = "#ccc";
+        var spanObj = document.getElementById("confirmPwdInfo");
+        if(pwd != pwd2){
+            spanObj.innerHTML = "密码不一致";
+            return false;
+        }
+        spanObj.innerHTML = "密码一致";
+        return true;
+    }
+    function checkForm(){
+        return checkName() && checkPwd() && checkConfirmPwd();
+    }
+</script>
+</body>
+</html>

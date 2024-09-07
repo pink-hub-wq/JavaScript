@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      margin: 0px;
+    }
+    p{
+      margin: 0px;
+    }
+    #container{
+      height: 1200px;
+      text-align: center;
+      padding-top: 50px;
+      border: 1px solid green;
+      width: 900px;
+      margin: 0px auto;
+    }
+    #container table{
+      width: 600px;
+      border: 1px solid red;
+      border-collapse: collapse;
+      margin: 0px auto;
+    }
+    #container table td{
+      border: 1px solid red;
+    }
+    #mask{
+      background-color: gray;
+      left: 0;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      filter: alpha(opacity=30);
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    #dialog{
+      background-color: #fff;
+      border: 5px solid orange;
+      height: 150px;
+      left: 50%;
+      margin-left: -150px;
+      padding: 1px;
+      position: fixed;
+      top: 100px;
+      width: 300px;
+      z-index: 101;
+      display: none;
+    }
+    #dialog div#title{
+      background: #CCCCCC;
+      overflow: hidden;
+    }
+    #dialog p.close{
+      float: right;
+      padding-right: 10px;
+      height: 24px;
+      line-height: 24px;
+      width: 40px;
+      cursor: pointer;
+    }
+    #dialog div#info{
+      text-align: center;
+      height: 80px;
+      line-height: 80px;
+    }
+    #dialog div#sure{
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <table>
+    <caption>订单表</caption>
+    <tr>
+      <td>选项</td>
+      <td>编号</td>
+      <td>项目</td>
+      <td>状态</td>
+      <td>数量</td>
+      <td>操作</td>
+    </tr>
+    <tr id="1001">
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>1001</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href="#" class="btnDel" onclick="return false">删除</a></td>
+    </tr>
+    <tr id="1002">
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>1002</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href="#" class="btnDel" onclick="return false">删除</a></td>
+    </tr>
+    <tr id="1003">
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>1003</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href="#" class="btnDel" onclick="return false">删除</a></td>
+    </tr>
+    <tr>
+      <td colspan="6" style="text-align: left;height: 40px;padding-top: 5px">
+        <input type="checkbox">全选&nbsp;&nbsp;
+        <input type="button" value="删除" id="btn">
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="dialog">
+  <div id="title">
+    <p class="close">关闭</p>
+  </div>
+  <div id="info">确认删除吗？</div>
+  <div id="sure">
+    <input type="button" value="确认" id="btnSure">
+  </div>
+</div>
+<div id="mask"></div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+  var isMulDel = false;
+  var delRowID;
+  $(function () {
+    $("#btn").click(function () {
+        showMask();
+        $("#dialog").show();
+        isMulDel = true;
+    });
+    $("a.btnDel").click(function () {
+      delRowID = $(this).parent("td").parent("tr").attr("id");
+      showMask();
+      $("#dialog").show();
+      isMulDel = true;
+    });
+
+    $("#btnSure").click(function () {
+      if (isMulDel) {
+        DelMulItems();
+      } else {
+        $("table tr[id='" + delRowID + "']" + delRowID).remove();
+      }
+      $("#dialog, #mask").hide();
+    });
+
+    $("p.close, #mask").click(function () {
+      $("#dialog, #mask").hide();
+    });
+
+    function DelMulItems() {
+      $("table tr td input[type='checkbox']:checked").parent("td").parent("tr").remove();
+    }
+
+    function showMask() {
+      var bh = $("body").height();
+      var bw = $("body").width();
+      $("#mask").css({
+        height: bh + "px",
+        width: bw + "px",
+        display: "block"
+      });
+    }
+  });
+</script>
+</body>
+</html>

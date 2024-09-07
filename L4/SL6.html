@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+     var number = Math.floor(1 + 10 * Math.random());
+     function guess(){
+        var info = document.getElementById("txtGuess").value;
+        if(info.trim() != "" && !isNaN(info)){
+            var input = Math.floor(info);
+            if(info > number){
+                alert("猜大了");
+            }else if(info < number){
+                alert("猜小了");
+            }else {
+                alert("猜对了");
+            }
+        }else{
+            alert("请输入整数");
+        }
+     }
+ </script>
+<p>请输入1到10之间的数：<input type="text" id="txtGuess"></p>
+<p><button onclick="guess()">确定</button></p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+    $(function (){
+        var imgs = new Array();
+        imgs[0] = "images/flower1.jpg";
+        imgs[1] = "images/flower2.jpg";
+        imgs[2] = "images/flower3.jpg";
+        imgs[3] = "images/flower4.jpg";
+        $("img").attr("src",function (){
+            var i = Math.ceil(Math.random() * 3);
+            return imgs[i];
+        })
+    });
+</script>
+</body>
+</html>

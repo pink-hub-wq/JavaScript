@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #info{
+        float: left;
+        border: 1px solid green;
+        width: 200px;
+        height: 680px;
+        background-color: orange;
+        overflow: hidden;
+    }
+    #info1{
+        float: left;
+        border: 1px solid green;
+        width: 1200px;
+        height: 100px;
+        margin-left:3%;
+        overflow: hidden;
+    }
+    #info2{
+        background-color: #bb7a2a;
+        text-align: center;
+        color: white;
+        height: 50px;
+        float: left;
+        width: 100%;
+        line-height: 50px;
+        overflow: hidden;
+    }
+    #info3{
+        background-color: #bb7a2a;
+        float: left;
+        width: 100%;
+        color: white;
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+    }
+    #z{
+        height: 40px;
+        width: 8%;
+        line-height: 40px;
+    }
+    #all{
+        width: 1500px;
+        height: 700px;
+    }
+    #foods{
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+        margin-top: 60px;
+    }
+    #foods li a{
+        display: block;
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin:20px auto;
+    }
+    #foods li a:hover{
+        background-color: #ddd;
+        color: black;
+    }
+</style>
+<body>
+<div id="all">
+    <div id="info">
+        <div id="info2">美食特产</div>
+        <ul id="foods">
+
+        </ul>
+    </div>
+    <div id="info1">
+        <div id="info3">
+            排序方式:
+            <select id="z">
+                <option>请选择：</option>
+            </select>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function initType(){
+        var foodType = new Array("休闲零食","营养保健","参茸滋养","茶叶","酒类","全球美食","生鲜蔬果","粮油米面","奶粉乳品");
+        for (var i in foodType) {
+            var obj = document.createElement("li");
+            obj.innerHTML = "<a href='#'>" + foodType[i] + "</a>";
+            document.getElementById("foods").appendChild(obj);
+        }
+    }
+</script>
+</body>
+</html>

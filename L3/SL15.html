@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        ul li {
+            float: left;
+            background-image: url(images/bg1.gif);
+            margin-right: 4px;
+        }
+
+        ul li a {
+            font: bold 14px/33px Verdana, Geneva, sans-serif;
+            color: white;
+            text-decoration: none;
+            width: 103px;
+            height: 33px;
+            text-align: center;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul id="nav">
+  <li><a href="#">首页</a></li>
+  <li><a href="#">产品列表</a></li>
+  <li><a href="#">新闻</a></li>
+</ul>
+
+<script>
+  var navUI = document.getElementById("nav");
+  var lis = navUI.getElementsByTagName("li");
+  for (var i = 0; i < lis.length; i++) {
+    lis[i].onmouseover = function () {
+      this.style.backgroundImage = "url('images/bg2.gif')";
+    }
+    lis[i].onmouseout = function () {
+      this.style.backgroundImage = "url('images/bg1.gif')";
+    }
+  }
+</script>
+</body>
+</html>
